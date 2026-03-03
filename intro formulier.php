@@ -25,7 +25,14 @@
         <input type="radio" name="Gender" value="man">Man
         <input type="radio" name="Gender" value="vrouw">Vrouw
 
-        <input type="submit" name="form_verzonden" value="Nu verzonden">
+    </p>
+
+    <p>
+        <label>Leeftijd</label>
+        <input type="number" name="Leeftijd">
+
+        <input type="submit" name="form_verzonden" value="Nu verzenden">
+
     </p>
 
 </form>

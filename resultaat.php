@@ -14,6 +14,9 @@ if (isset($_POST['form_verzonden']))
 
     echo $email;
 
+    $Leeftijd = $_POST['Leeftijd'];
+    echo $Leeftijd + 10;
+
 
     if (isset($_POST ['Gender'])) {
         $Gender = $_POST['Gender'];
