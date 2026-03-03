@@ -1,13 +1,30 @@
 <?php
 
-$name = $_POST['Naam'];
+//var_dump($_POST);
 
-echo $name;
+if (isset($_POST['form_verzonden']))
+{
 
-$email = $_POST['Email'];
 
-echo $email;
+    $name = $_POST['Naam'];
 
-$Gender = $_POST['Gender'];
+    echo $name;
 
-echo $Gender;
+    $email = $_POST['Email'];
+
+    echo $email;
+
+
+    if (isset($_POST ['Gender'])) {
+        $Gender = $_POST['Gender'];
+
+        echo $Gender;
+    }
+
+}
+else
+{
+    echo "U komt niet vanaf het formulier is verplicht";
+}
+
+

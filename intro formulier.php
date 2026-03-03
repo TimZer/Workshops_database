@@ -25,7 +25,7 @@
         <input type="radio" name="Gender" value="man">Man
         <input type="radio" name="Gender" value="vrouw">Vrouw
 
-        <input type="submit">
+        <input type="submit" name="form_verzonden" value="Nu verzonden">
     </p>
 
 </form>
