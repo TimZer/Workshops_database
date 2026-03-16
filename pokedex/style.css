@@ -1,24 +1,16 @@
-body{
+body {
 
     background: aqua;
     font-family: "Times New Roman", "sans-serif";
-   /* background-image: url("");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-size: cover; */
 }
 
 main{
-
     padding: 20px;
-    background: aliceblue;
     box-shadow: 0 4px 12px black;
     border-radius: 12px;
     margin: 40px auto;
     display: grid;
     grid-template-columns: repeat(6, [col-start] 1fr);
-
 
 }
 
