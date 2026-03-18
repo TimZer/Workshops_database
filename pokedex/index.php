@@ -10,6 +10,7 @@
 </head>
 <body>
 <header>
+    <a href="pokemon_inbrengen.php">Ga naar de insert pagina</a>
     <a href="index.php">
         <h1>Heel veel sigma pokemons</h1>
     </a>
