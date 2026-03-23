@@ -14,7 +14,7 @@
 </header>
     <?php
     if (isset($_POST["submitForm"])) {
-        var_dump($_POST);
+       //var_dump($_POST);
         $name = $_POST['pokemonName'];
         $number = $_POST['pokemonNumber'];
         $type1 = $_POST['pokemonType1'];
@@ -24,8 +24,22 @@
         $picture = $_POST['pokemonPicture'];
 
 
-         echo $query = "INSERT INTO pokemon (name, number, type1, type2, ability, species, picture) 
+        $query = "INSERT INTO pokemon (name, number, type1, type2, ability, species, picture) 
         VALUES ('$name', '$number', '$type1', '$type2', '$ability', '$species', '$picture')";
+
+        include "../includes/db_functions.php";
+
+        StartConnection("pokemondb");
+
+        $rowsAffected = ExecuteQuery($query);
+        if ($rowsAffected >= 1)
+        {
+            echo "U heeft een $name toegevoegd!";
+        }
+        else
+        {
+            echo "helaas er is iets fout gegaan! ";
+        }
     }
 
 

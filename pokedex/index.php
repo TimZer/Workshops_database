@@ -10,6 +10,7 @@
 </head>
 <body>
 <header>
+    <a href="pokemon_bijwerken.php">ga naar bijwerk pagina</a>
     <a href="pokemon_inbrengen.php">Ga naar de insert pagina</a>
     <a href="index.php">
         <h1>Heel veel sigma pokemons</h1>
@@ -71,9 +72,12 @@ foreach($result as $row)
 {
     $name = $row["name"];
     $img = $row["picture"];
+    $number = $row["number"];
+
     echo "<article>";
     echo $row["name"]. "<br>";
     echo "<img src='$img' alt='$name' width='50'>";
+    echo "<a href='pokemon_bijwerken.php?pokemonNumber=$number'>bewerk</a>";
     echo "</article>";
 }
 ?>
