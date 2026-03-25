@@ -15,7 +15,7 @@
 
 <?php
 
-    $pokemonNumber = $_GET["pokemonNumber"];
+    $pokemonNumber = $_GET ["pokemonNumber"];
 
     $query = "SELECT * FROM pokemon WHERE number= $pokemonNumber;";
 
@@ -46,11 +46,23 @@
         $ability = $_POST['pokemonAbility'];
         $species = $_POST['pokemonSpecies'];
         $picture = $_POST['pokemonPicture'];
+
+       echo $updateQuery = "UPDATE `pokemon` 
+            SET 
+            `name`='$name',
+            `number`='$number',
+            `type1`='$type1',
+            `type2`='$type2',
+            `ability`='$ability',
+            `species`='$species',
+            `picture`='$picture' 
+        WHERE `number` = $pokemonNumber";
+
     }
 
 ?>
 
-<form action="pokemon_bijwerken.php" method="post">
+<form action="pokemon_bijwerken.php?pokemonnumber=<?php echo $pokemonNumber;?>" method="post">
     <fieldset>
         <p>
             <label>name</label>
