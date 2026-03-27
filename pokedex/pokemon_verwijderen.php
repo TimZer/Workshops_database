@@ -15,13 +15,13 @@
 
 <?php
 
-    $pokemonNumber = $_GET ["pokemonNumber"];
+$pokemonNumber = $_GET ["pokemonNumber"];
 
-    $query = "SELECT * FROM pokemon WHERE number= $pokemonNumber;";
+$query = "SELECT * FROM pokemon WHERE number= $pokemonNumber;";
 
-    include "../includes/db_functions.php";
+include "../includes/db_functions.php";
 
-    StartConnection("pokemondb");
+StartConnection("pokemondb");
 
 
 if (isset($_POST["submitForm"])) {
@@ -34,39 +34,19 @@ if (isset($_POST["submitForm"])) {
     $species = $_POST['pokemonSpecies'];
     $picture = $_POST['pokemonPicture'];
 
-    echo $updateQuery = "UPDATE `pokemon` 
-            SET 
-            `name`='$name',
-            `number`='$number',
-            `type1`='$type1',
-            `type2`='$type2',
-            `ability`='$ability',
-            `species`='$species',
-            `picture`='$picture' WHERE `number`=$pokemonNumber;";
-
-    $rowsAffected = ExecuteQuery($updateQuery);
-    if ($rowsAffected >= 1)
-    {
-        echo "U heeft een Pokemon bewerkt!";
-    }
-    else
-    {
-        echo "helaas er is iets fout gegaan! ";
-    }
-
 }
 
-    $result = ExecuteSelectQuery($query);
+$result = ExecuteSelectQuery($query);
 
-    $now = $result[0];
+$now = $result[0];
 
-    $nowName = $now["name"];
-    $nowNumber = $now["number"];
-    $nowType1 = $now["type1"];
-    $nowType2 = $now["type2"];
-    $nowAbility = $now["ability"];
-    $nowSpecies = $now["species"];
-    $nowPicture = $now["picture"];
+$nowName = $now["name"];
+$nowNumber = $now["number"];
+$nowType1 = $now["type1"];
+$nowType2 = $now["type2"];
+$nowAbility = $now["ability"];
+$nowSpecies = $now["species"];
+$nowPicture = $now["picture"];
 
 
 ?>
