@@ -79,7 +79,7 @@ foreach($result as $row)
     echo "<img src='$img' alt='$name' width='50'>";
     echo "<p><a href='pokemon_bijwerken.php?pokemonNumber=$number'>bewerk</a>;</p>";
     echo "<p><a href='pokemon_verwijderen.php?pokemonNumber=$number'>verwijder</a>;</p>";
-    echo "</article>";
+    "</article>";
 }
 ?>
 </main>
