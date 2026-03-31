@@ -1,3 +1,27 @@
+<?php
+session_start();
+
+$correct_username = "admin";
+$correct_password = "1234";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    if ($username === $correct_username && $password === $correct_password) {
+        $_SESSION["loggedin"] = true;
+
+        // terug naar pokedex (index.php)
+        header("Location: index.php");
+        exit();
+    } else {
+        // fout? gewoon terug
+        header("Location: index.php");
+        exit();
+    }
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -14,6 +38,19 @@
     <a href="pokemon_inbrengen.php">Ga naar de insert pagina</a>
     <a href="index.php">
         <h1>Heel veel sigma pokemons</h1>
+    </a>
+
+    <div>
+        <?php if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true): ?>
+            <a href="logout.php">Uitloggen</a>
+        <?php else: ?>
+            <form action="index.php" method="post" style="display:inline;">
+                <input type="text" name="username" placeholder="username" required>
+                <input type="password" name="password" placeholder="password" required>
+                <button type="submit">Login</button>
+            </form>
+        <?php endif; ?>
+    </div>
     </a>
     <form action="index.php" method="get">
         <fieldset>
@@ -77,8 +114,10 @@ foreach($result as $row)
     echo "<article>";
     echo $row["name"]. "<br>";
     echo "<img src='$img' alt='$name' width='50'>";
-    echo "<p><a href='pokemon_bijwerken.php?pokemonNumber=$number'>bewerk</a>;</p>";
-    echo "<p><a href='pokemon_verwijderen.php?pokemonNumber=$number'>verwijder</a>;</p>";
+    if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+        echo "<p><a href='pokemon_bijwerken.php?pokemonNumber=$number'>bewerk</a>;</p>";
+        echo "<p><a href='pokemon_verwijderen.php?pokemonNumber=$number'>verwijder</a>;</p>";
+    }
     "</article>";
 }
 ?>

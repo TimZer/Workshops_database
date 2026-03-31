@@ -1,0 +1,49 @@
+<?php
+session_start();
+
+// Simpele check (hardcoded username & password)
+$correct_username = "admin";
+$correct_password = "1234";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $username = $_POST["username"];
+    $password = $_POST["password"];
+
+    if ($username === $correct_username && $password === $correct_password) {
+        $_SESSION["loggedin"] = true;
+        header("Location: dashboard.php");
+        exit();
+    } else {
+        $error = "Verkeerde gebruikersnaam of wachtwoord!";
+    }
+}
+?>
+
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css">
+<html>
+<head>
+    <title>login</title>
+</head>
+<body>
+
+<h2></h2>
+
+<?php
+if (isset($error)) {
+    echo "<p style='color:red;'>$error</p>";
+}
+?>
+
+<form method="POST" action="">
+    <label>Username:</label><br>
+    <input type="text" name="username" required><br><br>
+
+    <label>Password:</label><br>
+    <input type="password" name="password" required><br><br>
+
+    <button type="submit">Login</button>
+</form>
+
+</body>
+</html>
